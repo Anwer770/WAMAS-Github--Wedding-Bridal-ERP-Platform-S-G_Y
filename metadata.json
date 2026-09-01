@@ -1,0 +1,6 @@
+{
+  "name": "WAMAS - Wedding & Bridal ERP Platform",
+  "description": "منصة متكاملة لإدارة وتأجير وبيع وتصنيع فساتين الأعراس، الحجوزات، الخزينة والضمانات، والمقاسات، وتحليل فساتين الزفاف بالذكاء الاصطناعي",
+  "requestFramePermissions": ["camera"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
