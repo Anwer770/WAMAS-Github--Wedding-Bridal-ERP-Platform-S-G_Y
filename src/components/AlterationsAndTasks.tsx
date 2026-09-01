@@ -98,7 +98,7 @@ export const AlterationsAndTasks: React.FC<AlterationsAndTasksProps> = ({
             <div className="space-y-3">
               <div className="flex items-center justify-between">
                 <span className="font-mono font-bold text-xs bg-indigo-50 text-indigo-900 px-2 py-0.5 rounded border border-indigo-200">
-                  {alt.orderNumber}
+                  {alt.orderNumber || alt.id}
                 </span>
                 <span
                   className={`text-[10px] font-bold px-2 py-0.5 rounded-full ${
@@ -123,7 +123,7 @@ export const AlterationsAndTasks: React.FC<AlterationsAndTasksProps> = ({
                   <span>{alt.customerName}</span>
                 </h3>
                 <p className="text-xs text-amber-900 font-semibold mt-0.5">
-                  👗 {alt.itemName}
+                  👗 {alt.itemName || alt.dressName || "فستان زفاف"}
                 </p>
               </div>
 
@@ -133,7 +133,7 @@ export const AlterationsAndTasks: React.FC<AlterationsAndTasksProps> = ({
                   <span>المطلوب تنفيذه:</span>
                 </div>
                 <p className="text-slate-600 leading-relaxed font-medium">
-                  {alt.modificationsNeeded}
+                  {alt.modificationsNeeded || alt.instructions || "تعديل القياسات والبطانة"}
                 </p>
               </div>
 
@@ -151,7 +151,9 @@ export const AlterationsAndTasks: React.FC<AlterationsAndTasksProps> = ({
 
             {/* Actions */}
             <div className="pt-3 border-t border-slate-100 flex items-center justify-between text-xs">
-              <span className="text-slate-400 text-[11px]">المعلمة: {alt.seamstressName.split("-")[0]}</span>
+              <span className="text-slate-400 text-[11px]">
+                المعلمة: {(alt.seamstressName || alt.assignedTailor || "مشغل التعديل").split("-")[0].trim()}
+              </span>
               {alt.status !== "COMPLETED" && (
                 <button
                   onClick={() => onUpdateAlterationStatus(alt.id, "COMPLETED")}
